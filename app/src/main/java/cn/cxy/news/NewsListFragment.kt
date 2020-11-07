@@ -48,7 +48,7 @@ class NewsListFragment : Fragment() {
     ) :
         FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
         override fun getItem(position: Int): Fragment {
-            return BlankFragment.newInstance(dataList[position].id)
+            return ArticleListFragment.newInstance(dataList[position].id)
         }
 
         //TabLayout会根据当前page的title自动绑定tab
