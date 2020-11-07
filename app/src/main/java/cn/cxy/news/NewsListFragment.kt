@@ -7,11 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
+import cn.cxy.news.network.NetworkService
+import com.google.gson.GsonBuilder
 import kotlinx.android.synthetic.main.fragment_news.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class NewsListFragment : Fragment() {
-    private var urlList = mutableListOf<String>()
-    private var homeImageListAdapter: HomeImageListAdapter? = null
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -23,37 +30,29 @@ class NewsListFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         queryData()
-        setListeners()
-        fragmentManager?.let { viewPager.adapter = MainPagerAdapter(it) }
     }
-
-    private fun setListeners() {
-
-    }
-
 
     private fun queryData() {
-//        val networkService = getNetworkService()
-//        MainScope().launch(Dispatchers.Main) {
-//            val result = withContext(Dispatchers.IO) { networkService.query() }
-//            result.split("\n").forEach { urlList.add(it) }
-//            activity?.let {
-//                homeImageListAdapter = HomeImageListAdapter(it, urlList)
-//                vp2.adapter = homeImageListAdapter
-//            }
-//        }
+        val networkService = getNetworkService()
+        MainScope().launch(Dispatchers.Main) {
+            val result = withContext(Dispatchers.IO) { networkService.queryChapters() }
+            if(result.isSuccess())
+            {
+                fragmentManager?.let { viewPager.adapter = MainPagerAdapter(it,result.dataList) }
+            }
+        }
     }
 
-//    private fun getNetworkService(): NetworkService {
-//        val okHttpClient = OkHttpClient.Builder().build()
-//        val retrofit = Retrofit.Builder()
-//            .client(okHttpClient)
-//            .baseUrl("https://gitee.com/")
-//            .addConverterFactory(ScalarsConverterFactory.create())
-//            .build()
-//
-//        return retrofit.create(NetworkService::class.java)
-//    }
+    private fun getNetworkService(): NetworkService {
+        val okHttpClient = OkHttpClient.Builder().build()
+        val retrofit = Retrofit.Builder()
+            .client(okHttpClient)
+            .baseUrl("https://wanandroid.com/")
+            .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+            .build()
+
+        return retrofit.create(NetworkService::class.java)
+    }
 
     //ViewPager适配器  10个Fragment
     private inner class MainPagerAdapter(fm: FragmentManager) :
