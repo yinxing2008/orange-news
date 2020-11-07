@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import cn.cxy.news.db.repository.ImageInfoRepository
 import cn.cxy.news.utils.ImageUtil.deleteFile
 import cn.cxy.news.utils.ImageUtil.saveBitmap
-import kotlinx.android.synthetic.main.fragment_image.*
+import kotlinx.android.synthetic.main.fragment_news.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
@@ -18,7 +18,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.scalars.ScalarsConverterFactory
 
-class HomeImageListFragment : Fragment() {
+class NewsListFragment : Fragment() {
     private var urlList = mutableListOf<String>()
     private var homeImageListAdapter: HomeImageListAdapter? = null
     override fun onCreateView(
@@ -26,7 +26,7 @@ class HomeImageListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_image, container, false)
+        return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
