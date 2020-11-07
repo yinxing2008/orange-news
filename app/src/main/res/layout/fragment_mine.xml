@@ -11,7 +11,5 @@
 
         <include layout="@layout/activity_user_desc" />
 
-        <include layout="@layout/mine_part_favorite" />
-
     </LinearLayout>
 </ScrollView>

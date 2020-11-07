@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initData() {
         mFragments = ArrayList()
-        mFragments.add(NewsListFragment())
+        mFragments.add(ChapterListFragment())
         mFragments.add(MineFragment())
         // 初始化展示MessageFragment
         setFragmentPosition(0)

@@ -9,20 +9,20 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import cn.cxy.news.network.ArticleRepo
 import cn.cxy.news.network.ChapterResp
-import kotlinx.android.synthetic.main.fragment_news.*
+import kotlinx.android.synthetic.main.fragment_chapter.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class NewsListFragment : Fragment() {
+class ChapterListFragment : Fragment() {
     private val chapterRepo = ArticleRepo()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_news, container, false)
+        return inflater.inflate(R.layout.fragment_chapter, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
