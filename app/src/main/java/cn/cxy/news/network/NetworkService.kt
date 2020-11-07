@@ -4,5 +4,9 @@ import retrofit2.http.GET
 
 interface NetworkService {
     @GET("wxarticle/chapters/json")
-    suspend fun queryChapters(): Chapters
+    suspend fun getChapters(): ChapterResp
+
+    @GET("wxarticle/list/408/1/json")
+    suspend fun getArticle(): ArticleResp
+
 }
