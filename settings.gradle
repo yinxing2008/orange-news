@@ -1,2 +1,2 @@
-include ':app',':app1'
+include ':app',':app1',':app2'
 rootProject.name = "OrangeNews"
