@@ -33,7 +33,7 @@ class WebViewActivity : AppCompatActivity() {
     private fun setSettings() {
         val settings = webView.settings
         settings.javaScriptEnabled = true//设置WebView属性，能够执行Javascript脚本
-        settings.cacheMode = WebSettings.LOAD_NO_CACHE
+//        settings.cacheMode = WebSettings.LOAD_NO_CACHE
         settings.layoutAlgorithm = WebSettings.LayoutAlgorithm.NORMAL
         settings.allowFileAccess = true //设置可以访问文件
         settings.builtInZoomControls = false //设置支持缩放

@@ -35,7 +35,8 @@ class ArticleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     private fun setOnItemClickListener(data: ArticleResp.Articles.Article) {
-        Toast.makeText(mContext, data.title, Toast.LENGTH_SHORT).show()
+        val intent = WebViewActivity.buildIntent(mContext,data.link)
+        mContext.startActivity(intent)
     }
 
     class ViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView!!)
