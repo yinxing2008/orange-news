@@ -8,12 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.cxy.news.network.ArticleRepo
 import com.scwang.smart.refresh.footer.BallPulseFooter
-import com.scwang.smart.refresh.footer.ClassicsFooter
 import com.scwang.smart.refresh.header.BezierRadarHeader
-import com.scwang.smart.refresh.header.ClassicsHeader
-import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.constant.SpinnerStyle
-import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import kotlinx.android.synthetic.main.fragment_article_list.*
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
