@@ -7,9 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import cn.cxy.news.network.ArticleRepo
+import com.scwang.smart.refresh.footer.BallPulseFooter
 import com.scwang.smart.refresh.footer.ClassicsFooter
+import com.scwang.smart.refresh.header.BezierRadarHeader
 import com.scwang.smart.refresh.header.ClassicsHeader
 import com.scwang.smart.refresh.layout.api.RefreshLayout
+import com.scwang.smart.refresh.layout.constant.SpinnerStyle
 import com.scwang.smart.refresh.layout.listener.OnRefreshListener
 import kotlinx.android.synthetic.main.fragment_article_list.*
 import kotlinx.coroutines.MainScope
@@ -37,22 +40,11 @@ class ArticleListFragment : Fragment() {
     }
 
     private fun initSwipeRefreshLayout() {
-        //设置下拉刷新转圈的颜色
-//        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN)
-//        swipeRefreshLayout.setOnRefreshListener {
-//            loadData()
-//        }
-
-        refreshLayout.setRefreshHeader(ClassicsHeader(context))
-        refreshLayout.setRefreshFooter(ClassicsFooter(context))
-        refreshLayout.setOnRefreshListener(object : OnRefreshListener {
-            override fun onRefresh(refreshlayout: RefreshLayout) {
-                loadData()
-            }
-        })
-        refreshLayout.setOnLoadMoreListener { refreshLayout ->
-            loadMoreData()
-        }
+        refreshLayout.setRefreshHeader( BezierRadarHeader(context).setEnableHorizontalDrag(true));
+        refreshLayout.setRefreshFooter( BallPulseFooter(context).setSpinnerStyle(SpinnerStyle.Scale));
+        refreshLayout.setOnRefreshListener { loadData() }
+        refreshLayout.setOnLoadMoreListener { loadMoreData() }
+        refreshLayout.autoLoadMore()
     }
 
     private fun loadData() {
