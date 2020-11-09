@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import cn.cxy.news.network.ArticleResp
 import kotlinx.android.synthetic.main.item_article.view.*
@@ -26,6 +25,16 @@ class ArticleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun addData(dataList: List<ArticleResp.Articles.Article>) {
+        mDataList.addAll(dataList)
+        notifyDataSetChanged()
+    }
+
+    fun resetData() {
+        mDataList.clear()
+        notifyDataSetChanged()
+    }
+
     override fun getItemCount(): Int = mDataList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,7 +44,7 @@ class ArticleAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     private fun setOnItemClickListener(data: ArticleResp.Articles.Article) {
-        val intent = WebViewActivity.buildIntent(mContext,data.link)
+        val intent = WebViewActivity.buildIntent(mContext, data.link)
         mContext.startActivity(intent)
     }
 

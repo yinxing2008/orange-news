@@ -47,5 +47,8 @@ dependencies {
 
     implementation "com.github.cxyzy1:kotlinUtils:1.0.14"
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
+    implementation  'com.scwang.smart:refresh-layout-kernel:2.0.1'
+//    implementation  'com.scwang.smart:refresh-footer-ball:2.0.1'
+    implementation  'com.scwang.smart:refresh-header-classics:2.0.1'
+    implementation  'com.scwang.smart:refresh-footer-classics:2.0.1'
 }
