@@ -13,10 +13,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:tabBackground="@android:color/white"
-            app:tabIndicatorColor="@android:color/holo_red_light"
+            app:tabIndicatorColor="@color/colorPrimary"
             app:tabIndicatorHeight="2dp"
             app:tabMode="scrollable"
-            app:tabSelectedTextColor="@android:color/holo_red_light"
+            app:tabSelectedTextColor="@color/colorPrimary"
             app:tabTextColor="@android:color/darker_gray" />
 
     </androidx.viewpager.widget.ViewPager>

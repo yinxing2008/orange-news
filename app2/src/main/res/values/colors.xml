@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_focused">#03A9F4</color>
-    <color name="color_un_focused">#CCCCCC</color>
-    <color name="colorPrimary">#000000</color>
+    <color name="color_focused">@color/colorPrimary</color>
+    <color name="color_un_focused">#222222</color>
+    <color name="colorPrimary">#E45242</color>
+    <color name="bottomBg">#F8F8F8</color>
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#03DAC5</color>
 </resources>
