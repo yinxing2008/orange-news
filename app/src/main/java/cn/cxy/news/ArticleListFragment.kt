@@ -25,11 +25,26 @@ class ArticleListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
 
+        initSwipeRefreshLayout()
+        loadData()
+    }
+
+    private fun initSwipeRefreshLayout() {
+        //设置下拉刷新转圈的颜色
+//        swipeRefreshLayout.setColorSchemeColors(Color.RED,Color.BLUE,Color.GREEN)
+        swipeRefreshLayout.setOnRefreshListener {
+            loadData()
+        }
+    }
+
+    private fun loadData() {
         MainScope().launch {
+            swipeRefreshLayout.isRefreshing = true
             val response = articleRepo.getArticle(chapterId, 1)
             if (response.isSuccess()) {
                 response.data?.datas?.let { adapter.setData(it) }
             }
+            swipeRefreshLayout.isRefreshing = false
         }
     }
 
