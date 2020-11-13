@@ -8,4 +8,4 @@
 3. BottomNavigationView: 底部导航栏
 4. recyclerview:显示列表
 5. WebView:显示文章详情
-6. SwipeRefreshLayout:支持下拉刷新，支持上拉加载
+6. SmartRefreshLayout:支持下拉刷新，支持上拉加载
