@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/menu_home"
+        android:enabled="true"
+        android:icon="@drawable/home_selector"
+        android:title="@string/home"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_video"
+        android:enabled="true"
+        android:icon="@drawable/video_selector"
+        android:title="西瓜视频"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_cinema"
+        android:enabled="true"
+        android:icon="@drawable/cinema_selector"
+        android:title="放映厅"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/menu_mine"
+        android:enabled="true"
+        android:icon="@drawable/mine_selector"
+        android:title="@string/mine"
+        app:showAsAction="always" />
+</menu>
